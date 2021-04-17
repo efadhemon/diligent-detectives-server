@@ -1,0 +1,26 @@
+.sidebar {
+    background: linear-gradient(to right, rgb(236, 0, 140), rgb(252, 103, 103));
+    position: relative;
+    height: 100%;
+}
+
+.sidebar li {
+    margin-bottom: 2em;
+}
+
+.side-bar-link:hover{
+    text-decoration: none;
+}
+
+.sidebar li span {
+    transition: 0.3s;
+}
+
+.sidebar li:hover span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.sidebar svg {
+    margin-right: 5px;
+}

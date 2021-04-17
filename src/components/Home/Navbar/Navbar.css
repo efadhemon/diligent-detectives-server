@@ -1,0 +1,75 @@
+
+.header{
+    margin-bottom: 80px;
+}
+
+.header .navbar{
+    background: linear-gradient(to right, rgb(236, 0, 140), rgb(252, 103, 103));
+    padding: 15px;
+}
+.header .navbar .brand-logo{
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
+.header .navbar .brand-logo:hover{
+    color: white;
+}
+
+.header .nav-item .nav-link{
+    margin: 0 20px;
+    color: white !important;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.header .nav-item .nav-link.user-avatar{
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.header .nav-item .nav-link.login-btn {
+    background-color: rgb(236, 0, 140) !important;
+}
+
+.header .navbar-nav{
+    align-items: center;
+}
+
+.loggedIn-user-info {
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px #80808073;
+    position: absolute;
+    z-index: 100;
+    right: 20px;
+    background-color: white;
+}
+.display-none{
+    display: none;
+}
+
+.loggedIn-user-info img {
+    border-radius: 50%;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/* Responsive css */
+
+@media (max-width: 991px){
+    
+    .loggedIn-user-info{
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .header .navbar .brand-logo{
+        font-size: 25px;
+    }
+}

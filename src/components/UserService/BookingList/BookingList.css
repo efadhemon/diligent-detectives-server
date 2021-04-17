@@ -1,0 +1,20 @@
+
+.status{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.status.Pending{
+    background-color: #FFE3E3;
+    color: #fd7373;
+}
+.status.Done{
+    background-color: #C6FFE0;
+    color: #02fa72;
+}
+
+.status.On.going{
+    background-color: #fcf8c5bb;
+    color: orange;
+}

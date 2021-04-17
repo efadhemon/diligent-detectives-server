@@ -1,0 +1,18 @@
+input.verify-admin {
+    border: none;
+    outline: none;
+    padding: 10px;
+    box-shadow: 0px 0px 20px 0px lightgrey;
+    border-radius: 5px;
+    width: 400px;
+}
+
+input.verify-btn {
+    padding: 10px 20px !important;
+    font-weight: 500;
+}
+
+.manage-service svg{
+    font-size: 25px;
+    cursor: pointer;
+}

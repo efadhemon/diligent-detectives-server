@@ -19,7 +19,7 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
     const bookingsCollection = client.db(process.env.DB_NAME).collection("bookings");
-    const reviewsCollection = client.db(process.env.DB_NAME).collection("reviews");
+    const testimonialsCollection = client.db(process.env.DB_NAME).collection("testimonials");
     const adminCollection = client.db(process.env.DB_NAME).collection("admin");
     const serviceCollection = client.db(process.env.DB_NAME).collection("services");
     if (err) {
@@ -60,17 +60,17 @@ client.connect(err => {
 
         })
 
-        app.post('/postReview', (req, res) => {
+        app.post('/addTestimonial', (req, res) => {
             const review = req.body;
-            reviewsCollection.insertOne(review)
+            testimonialsCollection.insertOne(review)
                 .then(result => {
                     res.send(result.insertedCount > 0);
                 })
         })
 
-        app.get('/reviews', (req, res) => {
+        app.get('/testimonials', (req, res) => {
 
-            reviewsCollection.find({})
+            testimonialsCollection.find({})
                 .toArray((err, document) => {
                     res.send(document)
                 })
@@ -114,7 +114,15 @@ client.connect(err => {
               })
           })
 
+          app.delete('/deleteTestimonial/:id', (req, res) => {
+            testimonialsCollection.deleteOne({ _id: ObjectId(req.params.id) })
+              .then(result => {
+                res.send(result.deletedCount > 0)
+              })
+          })
+
     }
+
 });
 
 

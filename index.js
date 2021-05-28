@@ -131,6 +131,16 @@ client.connect(err => {
                 })
         })
 
+        app.patch('/editTestimonial/:id', (req, res) => {
+            testimonialsCollection.updateOne({ _id: ObjectId(req.params.id) }, {
+                $set: { name: req.body.name, cost: req.body.from, description: req.body.quote}
+            })
+                .then(result => {
+                    res.send(result.modifiedCount > 0)
+                })
+
+        })
+
     }
 
 });

@@ -52,8 +52,8 @@ client.connect(err => {
 
         app.patch('/updateStatus/:id', (req, res) => {
             bookingsCollection.updateOne({ _id: ObjectId(req.params.id) }, {
-                    $set: { status: req.body.newStatus }
-                })
+                $set: { status: req.body.newStatus }
+            })
                 .then(result => {
                     res.send(result.modifiedCount > 0)
                 })
@@ -109,17 +109,27 @@ client.connect(err => {
 
         app.delete('/deleteService/:id', (req, res) => {
             serviceCollection.deleteOne({ _id: ObjectId(req.params.id) })
-              .then(result => {
-                res.send(result.deletedCount > 0)
-              })
-          })
+                .then(result => {
+                    res.send(result.deletedCount > 0)
+                })
+        })
 
-          app.delete('/deleteTestimonial/:id', (req, res) => {
+        app.patch('/updateService/:id', (req, res) => {
+            serviceCollection.updateOne({ _id: ObjectId(req.params.id) }, {
+                $set: { name: req.body.name, cost: req.body.cost, description: req.body.description}
+            })
+                .then(result => {
+                    res.send(result.modifiedCount > 0)
+                })
+
+        })
+
+        app.delete('/deleteTestimonial/:id', (req, res) => {
             testimonialsCollection.deleteOne({ _id: ObjectId(req.params.id) })
-              .then(result => {
-                res.send(result.deletedCount > 0)
-              })
-          })
+                .then(result => {
+                    res.send(result.deletedCount > 0)
+                })
+        })
 
     }
 
